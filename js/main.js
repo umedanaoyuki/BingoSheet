@@ -1,16 +1,30 @@
 'use strict'
 
 {
-    const source = [];
-    for (let i = 0; i < 15; i++) {
-        source[i] = i + 1;
+
+    const createColum = (col) => {
+
+        const source = [];
+        for (let i = 0; i < 15; i++) {
+            source[i] = i + 1 + 15 * col;
+        }
+
+        //Math.floor(Math.random() * source.length)
+        const column = [];
+        for (let i = 0; i < 5; i++) {
+            column[i] = source.splice(Math.floor(Math.random() * source.length), 1)[0];
+        }
+
+        return column;
     }
 
-    //Math.floor(Math.random() * source.length)
-    const b = [];
-    for (let i = 0; i < 5; i++) {
-        b[i] = source.splice(Math.floor(Math.random() * source.length), 1)[0];
-    }
+    const columns = [];
+    columns[0] = createColum(0);
+    columns[1] = createColum(1);
+    columns[2] = createColum(2);
+    columns[3] = createColum(3);
+    columns[4] = createColum(4);
+    columns[2][2] = 'Free';
 
-    console.log(b);
+    console.table(columns);
 }
