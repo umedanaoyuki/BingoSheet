@@ -26,5 +26,15 @@
     columns[4] = createColum(4);
     columns[2][2] = 'Free';
 
-    console.table(columns);
+    // console.table(columns);
+
+    const bingo = [];
+    for (let row = 0; row < 5; row ++) {
+        bingo[row] = [];
+        for (let col = 0; col < 5; col++) {
+            bingo[row][col] = columns[col][row];
+        }
+    }
+
+    console.table(bingo);
 }
